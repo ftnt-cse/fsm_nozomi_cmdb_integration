@@ -119,7 +119,7 @@ def csv_formatter(csv_file,json_buffer):
 			csv_line.append(format_item(item['protocols']))
 			csv_line.append(format_item(item['nodes']))
 			csv_line.append('NozomiAPI')
-			csv_line.append(str(round(time.time() * 1000)))
+			csv_line.append(str(int(round(time.time() * 1000))))
 
 			line=",".join(csv_line)
 			file.write(line+'\n')
