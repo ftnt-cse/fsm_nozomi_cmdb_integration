@@ -1,0 +1,87 @@
+<updatePolicys>
+<updatePolicy>
+<vendorName>Nozomi1</vendorName>
+<instance>NozomiIntegration</instance>
+<domain/>
+<board/>
+<objectType>Device</objectType>
+<pluginName/>
+<credential custId="0" id="2437800">
+<principal/>
+<password/>
+</credential>
+<description/>
+<mappingConfig>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;config&gt;
+    &lt;columns&gt;
+        &lt;column isGroupKey="false" dest="ph_device.name" isPerfobj="false" objectType="Device" overwrite="true" src="name"/&gt;
+        &lt;column isGroupKey="false" dest="PROP_PREFIX@@@securityLevel" isPerfobj="false" objectType="Device" overwrite="true" propDisplayName="Security Level" propType="STRING" src="level"&gt;
+            &lt;dftValue&gt;&lt;/dftValue&gt;
+        &lt;/column&gt;
+        &lt;column isGroupKey="false" dest="PROP_PREFIX@@@captureDevice" isPerfobj="false" objectType="Device" overwrite="true" propDisplayName="Capture Device" propType="STRING" src="capture_device"&gt;
+            &lt;dftValue&gt;&lt;/dftValue&gt;
+        &lt;/column&gt;
+        &lt;column isGroupKey="false" dest="ph_device.os_edition" isPerfobj="false" objectType="Device" overwrite="true" src="os"/&gt;
+        &lt;column isGroupKey="false" dest="ph_device.hw_vendor" isPerfobj="false" objectType="Device" overwrite="true" src="vendor"/&gt;
+        &lt;column isGroupKey="false" dest="ph_device.version" isPerfobj="false" objectType="Device" overwrite="true" src="firmware_version"/&gt;
+        &lt;column isGroupKey="false" dest="ph_device.hw_serial_no" isPerfobj="false" objectType="Device" overwrite="true" src="serial_number"/&gt;
+        &lt;column isGroupKey="false" dest="ph_device_type.vendor" isPerfobj="false" objectType="Device" overwrite="true" src="product_name"/&gt;
+        &lt;column isGroupKey="false" dest="ph_device_type.model" isPerfobj="false" objectType="Device" overwrite="true" src="type"/&gt;
+        &lt;column isGroupKey="false" dest="PROP_PREFIX@@@applianceHost" isPerfobj="false" objectType="Device" overwrite="true" propDisplayName="Appliance Hosts" propType="STRING" src="appliance_host"&gt;
+            &lt;dftValue&gt;&lt;/dftValue&gt;
+        &lt;/column&gt;
+        &lt;column isGroupKey="false" dest="PROP_PREFIX@@@applianceHosts" isPerfobj="false" objectType="Device" overwrite="true" propDisplayName="Appliance Hosts" propType="STRING" src="appliance_hosts"&gt;
+            &lt;dftValue&gt;&lt;/dftValue&gt;
+        &lt;/column&gt;
+        &lt;column isGroupKey="false" dest="PROP_PREFIX@@@vlanID" isPerfobj="false" objectType="Device" overwrite="true" propDisplayName="VLAN ID" propType="DOUBLE" src="vlan_id"&gt;
+            &lt;dftValue&gt;&lt;/dftValue&gt;
+        &lt;/column&gt;
+        &lt;column isGroupKey="false" dest="PROP_PREFIX@@@vlanIDs" isPerfobj="false" objectType="Device" overwrite="true" propDisplayName="VLAN IDs" propType="DOUBLE" src="vlan_ids"&gt;
+            &lt;dftValue&gt;&lt;/dftValue&gt;
+        &lt;/column&gt;
+        &lt;column isGroupKey="false" dest="PROP_PREFIX@@@macVendor" isPerfobj="false" objectType="Device" overwrite="true" propDisplayName="MAC Vendor" propType="STRING" src="mac_vendor"&gt;
+            &lt;dftValue&gt;&lt;/dftValue&gt;
+        &lt;/column&gt;
+        &lt;column isGroupKey="false" dest="PROP_PREFIX@@@macVendors" isPerfobj="false" objectType="Device" overwrite="true" propDisplayName="MAC Vendors" propType="STRING" src="mac_vendors"&gt;
+            &lt;dftValue&gt;&lt;/dftValue&gt;
+        &lt;/column&gt;
+        &lt;column isGroupKey="false" dest="ph_device.access_ip" isPerfobj="false" objectType="Device" overwrite="false" src="ip"/&gt;
+        &lt;column isGroupKey="false" dest="PROP_PREFIX@@@deviceIPs" isPerfobj="false" objectType="Device" overwrite="true" propDisplayName="Device Other IPs" propType="STRING" src="ips"&gt;
+            &lt;dftValue&gt;&lt;/dftValue&gt;
+        &lt;/column&gt;
+        &lt;column isGroupKey="false" dest="PROP_PREFIX@@@protocol" isPerfobj="false" objectType="Device" overwrite="true" propDisplayName="Protocol" propType="STRING" src="protocol"&gt;
+            &lt;dftValue&gt;&lt;/dftValue&gt;
+        &lt;/column&gt;
+        &lt;column isGroupKey="false" dest="PROP_PREFIX@@@protocols" isPerfobj="false" objectType="Device" overwrite="true" propDisplayName="Other Protocols" propType="STRING" src="protocols"&gt;
+            &lt;dftValue&gt;&lt;/dftValue&gt;
+        &lt;/column&gt;
+        &lt;column isGroupKey="false" dest="PROP_PREFIX@@@node" isPerfobj="false" objectType="Device" overwrite="true" propDisplayName="Device Node" propType="STRING" src="node"&gt;
+            &lt;dftValue&gt;&lt;/dftValue&gt;
+        &lt;/column&gt;
+        &lt;column isGroupKey="false" dest="PROP_PREFIX@@@nodes" isPerfobj="false" objectType="Device" overwrite="true" propDisplayName="Device Nodes" propType="STRING" src="nodes"&gt;
+            &lt;dftValue&gt;&lt;/dftValue&gt;
+        &lt;/column&gt;
+        &lt;column isGroupKey="false" dest="ph_device.discover_method" isPerfobj="false" objectType="Device" overwrite="true" src="method"/&gt;
+        &lt;column isGroupKey="false" dest="ph_device.discover_time" isPerfobj="false" objectType="Device" overwrite="false" src="time"/&gt;
+    &lt;/columns&gt;
+    &lt;contents/&gt;
+&lt;/config&gt;
+</mappingConfig>
+<target/>
+<groups/>
+<groupDns/>
+<maxNumber>50</maxNumber>
+<toSelf>true</toSelf>
+<afterDisc>false</afterDisc>
+<csvPath>/tmp/nozomi.csv</csvPath>
+<orgMappings/>
+<inTimeRange>24</inTimeRange>
+<project/>
+<jiraIssueType/>
+<jiraMapping/>
+<rbaServiceName/>
+<rbaPayloadName/>
+<rbaRules/>
+</updatePolicy>
+</updatePolicys>
+
