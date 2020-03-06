@@ -70,13 +70,26 @@ def fetch_nozomi_cmdb(server, username, password):
 		print(bcolors.FAIL+"Error occured: "+ e + bcolors.ENDC)
 		sys.exit(1)
 
-def format_item(item):
-	return_list=[]
+def format_item(item,field):
+	return_list = []
+	empty_field_mapping = {
+	'appliance_hosts':'Unknown',
+	'mac_address':'00:00:00:00:00:00',
+	'vlan_id':'0',
+	'mac_vendor':'Unknown',
+	'ip':'255.255.255.255',
+	'protocols':'Unknown',
+	'nodes':'Unknown'
+	}
+	#if empty
 	if not item:
-		return_list.append('0.0.0.0')
+		return_list.append(empty_field_mapping[field].replace(',',''))
+		return_list.append('')
+	# if a single value
 	elif type(item) is str:
 		return_list.append(item.replace(',',''))
 		return_list.append('')
+	#if it's a list
 	elif type(item) is list:
 		if len(item) > 1:
 			return_list.append(item[0].replace(',',''))
@@ -114,13 +127,13 @@ def csv_formatter(csv_file,json_buffer):
 			csv_line.append(item['serial_number'].replace(',',''))
 			csv_line.append(item['product_name'].replace(',',''))
 			csv_line.append(item['type'].replace(',',''))
-			csv_line.append(format_item(item['appliance_hosts']))
-			csv_line.append(format_item(item['mac_address']))
-			csv_line.append(format_item(item['vlan_id']))
-			csv_line.append(format_item(item['mac_vendor']))
-			csv_line.append(format_item(item['ip']))
-			csv_line.append(format_item(item['protocols']))
-			csv_line.append(format_item(item['nodes']))
+			csv_line.append(format_item(item['appliance_hosts'],'appliance_hosts'))
+			csv_line.append(format_item(item['mac_address'],'mac_address'))
+			csv_line.append(format_item(item['vlan_id'],'vlan_id'))
+			csv_line.append(format_item(item['mac_vendor'],'mac_vendor'))
+			csv_line.append(format_item(item['ip'],'ip'))
+			csv_line.append(format_item(item['protocols'],'protocols'))
+			csv_line.append(format_item(item['nodes'],'nodes'))
 			csv_line.append('NozomiAPI')
 			csv_line.append(str(int(round(time.time() * 1000))))
 			if 'windows' in item['os'].lower():
