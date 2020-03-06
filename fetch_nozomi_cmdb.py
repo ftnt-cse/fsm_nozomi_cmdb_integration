@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 """ Fetches Nozomi CMDN and format it to be ingetsed by FSM device integration
 PS: THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND
-
+changelog:
+0.3 : address Device Type Vendor and Device Type Model  to be always populated to avoid  Service-Now device outbound integration issues.
 """
 __author__ = "FSM CSE Team"
 __license__ = "GPL"
-__version__ = "0.2"
+__version__ = "0.3"
 __status__ = "beta"
 
 import argparse
@@ -71,7 +72,9 @@ def fetch_nozomi_cmdb(server, username, password):
 
 def format_item(item):
 	return_list=[]
-	if type(item) is str:
+	if not item:
+		return_list.append('0.0.0.0')
+	elif type(item) is str:
 		return_list.append(item.replace(',',''))
 		return_list.append('')
 	elif type(item) is list:
@@ -99,7 +102,7 @@ def csv_formatter(csv_file,json_buffer):
 	csv_line=[]
 	open(csv_file, 'w').close()										# Empty previous content
 	with open(csv_file, 'a') as file:
-		file.write('name,level,capture_device,os,vendor,firmware_version,serial_number,product_name,type,appliance_host,appliance_hosts,mac_address,mac_addresses,vlan_id,vlan_ids,mac_vendor,mac_vendors,ip,ips,protocol,protocols,node,nodes,method,time\n')
+		file.write('name,level,capture_device,os,vendor,firmware_version,serial_number,product_name,type,appliance_host,appliance_hosts,mac_address,mac_addresses,vlan_id,vlan_ids,mac_vendor,mac_vendors,ip,ips,protocol,protocols,node,nodes,method,time,sn_vendor,sn_model\n')
 		#next(f)																	#skip first line
 		for item in json_buffer['result']:
 			csv_line.append(item['name'].replace(',',''))
@@ -120,6 +123,12 @@ def csv_formatter(csv_file,json_buffer):
 			csv_line.append(format_item(item['nodes']))
 			csv_line.append('NozomiAPI')
 			csv_line.append(str(int(round(time.time() * 1000))))
+			if 'windows' in item['os'].lower():
+				csv_line.append('Microsoft') #sn_vendor
+				csv_line.append('Windows') #sn_model
+			else:
+				csv_line.append('Generic') #sn_vendor
+				csv_line.append('Unix') #sn_model
 
 			line=",".join(csv_line)
 			file.write(line+'\n')
